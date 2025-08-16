@@ -1,0 +1,1 @@
+# automated tests for routes

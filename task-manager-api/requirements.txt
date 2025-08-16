@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+python-dotenv
+alembic  # Para migrações de banco
+
+# Dependências de teste
+pytest
+httpx

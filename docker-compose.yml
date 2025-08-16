@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./task-manager-api # Caminho para a pasta do backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./task-manager-api:/usr/src/app
+    env_file:
+      - ./task-manager-api/.env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mydatabase
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
